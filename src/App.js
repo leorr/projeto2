@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
+class App extends Component {
+  state = {
+    weather: []
+  }
+  componentDidMount() {
+    fetch('http://ladataverte.fr/api/1.0/data_points?id_indicators[]=10&type_place[]=world&from=2010b-01-01&to=2010-12-31')
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({ weather: data })
+    })
+  }
+  render () {
+    return (
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Projeto 2</h5>
+          <h6 class="card-subtitle mb-2 text-muted">teste import bootstrap</h6>
+          <p class="card-text">Commit inicial</p>
+        </div>
+      </div>
+      );
+    }
+  }
 export default App;
