@@ -16,7 +16,7 @@ class App extends Component {
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Projeto 2</h5>
-          <h6 class="card-subtitle mb-2 text-muted">teste import bootstrap</h6>
+          <h6 class="card-subtitle mb-2 text-muted">teste deploy</h6>
           <p class="card-text">Commit inicial</p>
         </div>
       </div>
