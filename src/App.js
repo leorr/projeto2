@@ -1,45 +1,33 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-class App extends Component {
+import './App.css';
+import Dashboard from './components/Dashboard/Dashboard';
+import Login from './components/Login/Login';
+import Preferences from './components/Preferences/Preferences';
 
-  state = {
-    username: [],
-    password: [],
-    token: [],
-    loading: false,
-    error: false,
-  };
+function App() {
+  const [token, setToken] = useState();
 
-  async login() {
-    var loginInfo = [this.state.username, this.state.password];
-    this.state.loading = true;
-    try {
-      await axios.get(`http://projeto3-leorr.herokuapp.com/user/login`, loginInfo)
-      .then(res => {
-        this.setState({ token: res});
-      });
-    } catch (error) {
-      this.setState({ error: true });
-    } 
-  }
-  
-  componentDidMount() {
+  if(!token) {
+    return <Login setToken={setToken} />
   }
 
-  render() {
-    if(!this.state.loading) {
-      return (
-        <div>
-          TODO TELA LOGIN
-        </div>
-      );
-    } else {
-      return (
-        <div>Loading</div>
-      )
-    }
-  }
+  return (
+    <div className="wrapper">
+      <h1>Login com sucesso</h1>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+          <Route path="/preferences">
+            <Preferences />
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
