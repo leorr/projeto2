@@ -18,7 +18,7 @@ function App() {
       <h1>Login com sucesso</h1>
       <BrowserRouter>
         <Switch>
-          <Route path="/projeto2/dashboard">
+          <Route path={["/projeto2/dashboard", "/projeto2"]}>
             <Dashboard />
           </Route>
         </Switch>
