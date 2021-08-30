@@ -5,14 +5,7 @@ import axios from 'axios';
 import './Login.css';
 
 async function loginUser(credentials) {
-  try {
-    await axios.post(`https://projeto3-leorr.herokuapp.com/user/login`, credentials)
-      .then( res => {
-        console.log(res);
-      });
-  } catch (error) {
-    console.log(error);
-  }
+   return axios.post(`https://projeto3-leorr.herokuapp.com/user/login`, credentials)
 }
 
 export default function Login({ setToken }) {
@@ -20,11 +13,11 @@ export default function Login({ setToken }) {
   const [password, setPassword] = useState();
   const handleSubmit = async e => {
     e.preventDefault();
-    const token = await loginUser({
+    const res = await loginUser({
       username,
       password
     });
-    setToken(token);
+    setToken(res.data);
   }
   return(
     <div className="login-wrapper">

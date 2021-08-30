@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import './App.css';
 import Dashboard from './components/Dashboard/Dashboard';
 import Login from './components/Login/Login';
-import Preferences from './components/Preferences/Preferences';
+import useToken from './useToken';
 
 function App() {
-  const [token, setToken] = useState();
+  const { token, setToken } = useToken();
 
   if(!token) {
     return <Login setToken={setToken} />
@@ -18,11 +18,8 @@ function App() {
       <h1>Login com sucesso</h1>
       <BrowserRouter>
         <Switch>
-          <Route path="/dashboard">
+          <Route path="/projeto2/dashboard">
             <Dashboard />
-          </Route>
-          <Route path="/preferences">
-            <Preferences />
           </Route>
         </Switch>
       </BrowserRouter>
