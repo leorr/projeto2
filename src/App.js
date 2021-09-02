@@ -16,10 +16,15 @@ function App() {
 
   return (
     <div className="wrapper">
+      <h1>Login com sucesso</h1>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/projeto2/upload" component={Upload} />
-          <Route path={["/projeto2/dashboard", "/projeto2"]} component={Dashboard}/>
+          <Route path={["/projeto2/upload"]}>
+            <Upload />
+          </Route>
+          <Route path={["/projeto2/dashboard", "/projeto2"]}>
+            <Dashboard />
+          </Route>
         </Switch>
       </BrowserRouter>
     </div>
