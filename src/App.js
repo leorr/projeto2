@@ -16,7 +16,6 @@ function App() {
 
   return (
     <div className="wrapper">
-      <h1>Login com sucesso</h1>
       <BrowserRouter>
         <Switch>
           <Route path={["/projeto2/upload"]}>
