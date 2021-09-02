@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
 import './App.css';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -18,11 +18,21 @@ function App() {
     <div className="wrapper">
       <h1>Login com sucesso</h1>
       <BrowserRouter>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Dashboard</Link>
+            </li>
+            <li>
+              <Link to="/upload">Upload</Link>
+            </li>
+          </ul>
+        </nav>
         <Switch>
-          <Route path={["/projeto2/upload"]}>
+          <Route path={["/upload"]}>
             <Upload />
           </Route>
-          <Route path={["/projeto2/dashboard", "/projeto2"]}>
+          <Route path={["/dashboard", "/"]}>
             <Dashboard />
           </Route>
         </Switch>
