@@ -23,8 +23,12 @@ class Dashboard extends React.Component {
     }).then(function(data) {
       return data;
     });
+    var loading = false;
     if (posts) {
-      var loading = false;
+      this.setState( {loading} );
+      this.setState({ posts });
+    } else {
+      loading = true;
       this.setState( {loading} );
       this.setState({ posts });
     }
@@ -56,6 +60,7 @@ class Dashboard extends React.Component {
       return(
         <div className="dashboard-wrapper">
           <h2>Dashboard</h2>
+          <a href="/projeto2/upload">UPLOAD</a>
           <h1>Posts</h1>
           <form onSubmit={this.handleSubmit}>
             <label>Busca: </label>
@@ -77,6 +82,7 @@ class Dashboard extends React.Component {
       return (
         <div className="dashboard-wrapper">
           <h2>Dashboard</h2>
+          <a href="/projeto2/upload">UPLOAD</a>
           <h1>Posts</h1>
           <form onSubmit={this.handleSubmit}>
             <label>Busca: </label>
