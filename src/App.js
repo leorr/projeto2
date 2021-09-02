@@ -18,12 +18,8 @@ function App() {
     <div className="wrapper">
       <BrowserRouter>
         <Switch>
-          <Route path={["/projeto2/upload"]}>
-            <Upload />
-          </Route>
-          <Route path={["/projeto2/dashboard", "/projeto2"]}>
-            <Dashboard />
-          </Route>
+          <Route exact path="/projeto2/upload" component={Upload} />
+          <Route path={["/projeto2/dashboard", "/projeto2"]} component={Dashboard}/>
         </Switch>
       </BrowserRouter>
     </div>
